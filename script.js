@@ -5,10 +5,25 @@ let inputList = document.getElementById("input-list");
 
 inputButtonId.addEventListener("click", () => {
   let li = document.createElement("li");
-  //   const text = document.createTextNode(inputTxtId.value);
-  li.textContent = inputTxtId.value;
+  let divItem = document.createElement("div");
+  let divBtn = document.createElement("div");
+
+  li.append(divItem, divBtn);
+
+  divBtn.parentElement.setAttribute("onclick", "removeItem(event)");
+  divBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+  //   <div>ATHLETICS</div>
+  //      <div onclick="removeItem(event)">
+  //          <i class="fa-solid fa-trash-can"></i>
+  //     </div>
+
+  divItem.textContent = inputTxtId.value;
   li.className = "input-item";
+
   inputList.append(li);
+  //   li.append(divItem);
+  //   li.append(divBtn);
+
   inputTxtId.value = "";
 });
 
